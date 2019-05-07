@@ -6,7 +6,7 @@ class StringCalculator {
         return if (numbers.isEmpty()) {
             0
         } else {
-            numbers.split(",").sumBy { it.toInt() }
+            numbers.split(Regex("[,|^\n]")).sumBy { it.toInt() }
         }
     }
 }
