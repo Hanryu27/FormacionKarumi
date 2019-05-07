@@ -23,6 +23,17 @@ class StringCalculatorTest {
     }
 
 
+    @Test
+    fun whenTheInputIsMoreThanTwoNumbersReturnSum() {
+        assertEquals(13, givenAStringCalculator().add("5,2,3,3"))
+    }
+
+    @Test
+    fun whenTheInputIsWithLineBreakReturnSum() {
+        assertEquals(26, givenAStringCalculator().add("15\n5\n3\n3"))
+    }
+
+
     private fun givenAStringCalculator(): StringCalculator {
         return StringCalculator()
     }
