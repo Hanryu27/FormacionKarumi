@@ -6,13 +6,25 @@ class StringCalculator {
         return if (numbers.isEmpty()) {
             0
         } else {
-            numbers.split(Regex("[,|^\n]")).sumBy { number ->
-                if (number.toInt() < 0) {
-                    throw Exception("Negatives not allowed")
+            if (numbers.length > 1) {
+                val filteredNumbers = numbers.split(Regex("[,|^\n]"))
+                if (filteredNumbers.isEmpty()) {
+                    throw Exception("Delimiter is not correct")
                 } else {
-                    number.toInt()
+                    filteredNumbers.sumBy { number ->
+                        if (number.toInt() < 0) {
+                            throw Exception("Negatives not allowed")
+                        } else {
+                            number.toInt()
+                        }
+                    }
                 }
+
+            } else {
+                return numbers.toInt()
             }
+
+
         }
     }
 }

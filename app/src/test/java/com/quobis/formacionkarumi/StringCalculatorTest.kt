@@ -2,7 +2,6 @@ package com.quobis.formacionkarumi
 
 import junit.framework.Assert.assertEquals
 import org.junit.Test
-import java.lang.Error
 
 class StringCalculatorTest {
 
@@ -37,6 +36,11 @@ class StringCalculatorTest {
     @Test(expected = Exception::class)
     fun whenTheInputHaveNegativeNumberRaiseException() {
         givenAStringCalculator().add("-3,4")
+    }
+
+    @Test(expected = Exception::class)
+    fun whenSeparatorIsWrong() {
+        givenAStringCalculator().add("1.2")
     }
 
 
